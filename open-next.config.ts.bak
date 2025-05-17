@@ -1,0 +1,24 @@
+export default {
+  default: {
+    override: {
+      wrapper: "express-dev",
+      converter: "node",
+      incrementalCache: "fs-dev",
+      queue: "direct",
+      tagCache: "fs-dev",
+    },
+  },
+  imageOptimization: {
+    override: {
+      wrapper: "dummy",
+      converter: "dummy",
+    },
+    loader: "fs-dev",
+    // This part is not needed on ARM Linux as it will be installed by default
+    // Remember to change this depending on your arch and system
+    install: {
+      arch: "x64",
+      packages: ["sharp"],
+    },
+  },
+}
